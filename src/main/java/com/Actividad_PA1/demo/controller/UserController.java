@@ -8,7 +8,7 @@ package com.Actividad_PA1.demo.controller;
  *
  * @author LAB_P03
  */
- 
+
 import com.Actividad_PA1.demo.model.user;
 
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class ProductoController {
+public class UserController {
 
     @GetMapping("/")
     public String viewProducto(Model model) {
@@ -30,14 +30,7 @@ public class ProductoController {
     @PostMapping("/register")
     public String successProducto(@ModelAttribute user user, Model model) {
 
-        model.addAttribute("user", user);
-
-        if (user.getName().equals("admin") && user.getPassword().equals("admin")) {
-
-            return "success";
-        }
-        else{ 
-            return "error";
-        }
+        model.addAttribute("user", user); 
+        return "success"; 
     }
 }
